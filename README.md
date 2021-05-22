@@ -36,7 +36,6 @@ nnef/physics/protein_os.py has a few components:
 2) Monte Carlo search of the energy function
 3) calculate gradients of the energy function and run dynamics
 
-
 ### training 
 train_chimeric.py is the script for training. 
 
