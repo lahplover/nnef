@@ -22,7 +22,7 @@ Local structure features include
 3) an indicator of the segments connectivity 
 
 ### ML model
-model/local_ss.py is the latest model. 
+nnef/model/local_ss.py is the latest model. 
 
 The model components: 
 1) linear embedding layers
@@ -37,7 +37,7 @@ nnef/physics/protein_os.py has a few components:
 3) calculate gradients of the energy function and run dynamics
 
 ### training 
-train_chimeric.py is the script for training. 
+nnef/train_chimeric.py is the script for training. 
 
 >python nnef/train_chimeric.py --data_flag hhsuite_CB_cullpdb_cath-alpha-beta_train.csv --seq_len 14 --seq_type residue --chimeric --residue_type_num 20 --epochs 1000 --val_data_flag hhsuite_CB_cullpdb_cath-alpha-beta_val.csv --test_data_flag hhsuite_CB_cullpdb_cath-ab.csv --batch_size 1000 --total_num_samples 1000000 --embed_size 32 --dim 128 --n_layers 4 --attn_heads 4 --mixture_r 2 --mixture_angle 3 --smooth_gaussian --smooth_r 0.3 --smooth_angle 45 --lr 5e-5 --n_warmup_steps 5000 --steps_decay_scale 30000 --coords_angle_loss_lamda 1 --profile_loss_lamda 10 --use_position_weights --cen_seg_loss_lamda 1 --oth_seg_loss_lamda 3 --save_path runs/exp1 --log_interval 30 --save_interval 100 --num_workers=4 
 
