@@ -93,12 +93,14 @@ def get_local_gen_parser():
 def get_fold_parser():
     parser = get_common_parser()
     parser.add_argument("--save_dir", type=str, default=None)
+    parser.add_argument("--input_pdb", type=str, default=None)
 
     parser.add_argument("--fold_engine", type=str, default='anneal', help='anneal / grad / dynamics')
 
     parser.add_argument("--T_max", type=float, default=0.1)
     parser.add_argument("--T_min", type=float, default=0.01)
     parser.add_argument("--L", type=int, default=1000)
+    parser.add_argument("--trj_log_interval", type=int, default=10, help='save trajectory evey log_interval')
     parser.add_argument("--lr", type=float, default=1e-3, help='learning rate used in grad and dynamics')
 
     parser.add_argument("--anneal_type", type=str, default='int_one', help='int_one / frag')

@@ -43,7 +43,7 @@ nnef/train_chimeric.py is the script for training.
 
 ### test
 
-_need to upload pretrained model to dropbox_
+_pretrained model -- params/exp1/models/model.pt_
 
 1. scripts for scoring protein structures: 
 * decoy_nm_score.py is for normal modes decoys;
@@ -65,6 +65,10 @@ for examples:
 
 >python nnef/design_sample_deep.py --seq_len 14 --mode CB --seq_type residue     --embed_size 32 --dim 128 --n_layers 4 --attn_heads 4     --mixture_r 2 --mixture_angle 3 --mixture_seq 1 --smooth_gaussian --smooth_r 0.3 --smooth_angle 45  --coords_angle_loss_lamda 1 --profile_loss_lamda 10 --radius_loss_lamda 1 --start_id_loss_lamda 1     --res_counts_loss_lamda 1  --use_position_weights --cen_seg_loss_lamda 1 --oth_seg_loss_lamda 3 --load_exp runs/exp1 --fold_engine anneal --random_init --L 1000 --T_max 4.2 --T_min 1.4 --save_dir exp1anneal_val_deep
 
+4. fold_one.py is the script for generating dynamics trajectory for one protein in PDB format. 
+
+>cd nnef
+>python fold_one.py  --seq_len 14 --mode CB --seq_type residue     --embed_size 32 --dim 128 --n_layers 4 --attn_heads 4     --mixture_r 2 --mixture_angle 3 --mixture_seq 1 --smooth_gaussian --smooth_r 0.3 --smooth_angle 45  --coords_angle_loss_lamda 1 --profile_loss_lamda 10 --radius_loss_lamda 1 --start_id_loss_lamda 1     --res_counts_loss_lamda 1  --use_position_weights --cen_seg_loss_lamda 1 --oth_seg_loss_lamda 3 --load_exp ../params/exp1 --fold_engine dynamics --x_type cart --L 100 --trj_log_interval 10 --T_max 0.05 --lr 0.01 --input_pdb ../examples/1zzk.pdb --save_dir ../examples
 
 
 
